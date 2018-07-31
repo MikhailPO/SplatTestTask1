@@ -1,0 +1,72 @@
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<BorderPane fx:controller="searchinfiles.Controller"
+            xmlns:fx="http://javafx.com/fxml">
+    <top>
+        <BorderPane>
+            <top>
+                <BorderPane>
+                    <top>
+                        <Label text="Please enter directory path"/>
+                    </top>
+                    <center>
+                        <TextField fx:id="InputPath"/>
+                    </center>
+                </BorderPane>
+            </top>
+            <center>
+                <BorderPane>
+                    <top>
+                        <Label text="Please enter file extensions"/>
+                    </top>
+                    <center>
+                        <ComboBox fx:id="ComBox">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="log"/>
+                                    <String fx:value="txt"/>
+                                    <String fx:value="doc"/>
+                                    <String fx:value="java"/>
+                                </FXCollections>
+                            </items>
+                            <value>
+                                <String fx:value="log"/>
+                            </value>
+                        </ComboBox>
+                    </center>
+                </BorderPane>
+            </center>
+            <bottom>
+                <BorderPane>
+                    <top>
+                        <Label text="Please enter the search text"/>
+                    </top>
+                    <center>
+                        <TextField fx:id="InputWord"/>
+                    </center>
+                </BorderPane>
+            </bottom>
+        </BorderPane>
+
+    </top>
+    <right>
+        <Button text="Go" onAction="#go"/>
+    </right>
+    <center>
+        <Label fx:id="MyLabel" text=" "/>
+    </center>
+    <bottom>
+        <TableView fx:id="rTable">
+            <columns>
+                <TableColumn  text="File">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="pFile"/>
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+    </bottom>
+</BorderPane>
